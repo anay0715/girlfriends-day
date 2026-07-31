@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Girlfriends Day ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Happy Girlfriend's Day ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
 
 body{
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff6f91,#ff9fb2);
 color:white;
 text-align:center;
 overflow-x:hidden;
 }
 
-.hero{
-height:100vh;
+
+.container{
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -29,170 +27,326 @@ align-items:center;
 padding:20px;
 }
 
+
 h1{
-font-size:55px;
-margin-bottom:20px;
+text-shadow:0 0 15px rgba(255,255,255,.8);
 }
 
-p{
-font-size:22px;
-max-width:700px;
-line-height:1.6;
-}
 
-button{
-margin-top:30px;
-padding:15px 40px;
-font-size:20px;
-border:none;
-border-radius:30px;
-background:white;
-color:#ff4f81;
+/* Envelope */
+
+.envelope{
+position:relative;
+width:340px;
+height:230px;
 cursor:pointer;
-transition:.3s;
+perspective:1000px;
+transition:1s;
 }
 
-button:hover{
-transform:scale(1.1);
+
+.base{
+position:absolute;
+bottom:0;
+width:100%;
+height:130px;
+background:#fff0f5;
+border-radius:0 0 15px 15px;
+box-shadow:0 15px 30px rgba(0,0,0,.3);
 }
 
-#letter{
-display:none;
+
+.flap{
+position:absolute;
+top:0;
+width:0;
+height:0;
+border-left:170px solid transparent;
+border-right:170px solid transparent;
+border-top:115px solid #ffe3ec;
+transform-origin:top;
+transition:1s;
+z-index:3;
+}
+
+
+.letter{
+position:absolute;
+left:20px;
+top:45px;
+width:300px;
+height:170px;
 background:white;
 color:#333;
-padding:40px;
-max-width:700px;
-margin:50px auto;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.3);
+border-radius:12px;
+padding:18px;
+box-sizing:border-box;
+transform:translateY(40px);
+transition:1s;
+overflow:auto;
+z-index:2;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+
+.letter h3{
+color:#ff4f7b;
+}
+
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+
+.open .letter{
+transform:translateY(-150px);
+}
+
+
+.click{
+margin-top:30px;
 font-size:20px;
-line-height:1.8;
+animation:pulse 1.5s infinite;
 }
 
-.heart{
-position:fixed;
-color:red;
-font-size:20px;
-animation:fall linear infinite;
+
+@keyframes pulse{
+50%{transform:scale(1.1);}
 }
 
-@keyframes fall{
-0%{
-transform:translateY(-100px);
-}
-100%{
-transform:translateY(110vh);
-}
+
+
+.hidden{
+display:none;
 }
 
-  /* Gallery */
+
+/* Counter */
+
+.counter{
+margin:30px auto;
+padding:15px 25px;
+background:rgba(255,255,255,.2);
+border:2px solid white;
+border-radius:15px;
+width:max-content;
+}
+
+
+
+/* Gallery */
+
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    padding:40px;
-    justify-items:center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:30px;
 }
 
-.gallery h2{
-    grid-column:1/-1;
-    font-size:38px;
-    margin-bottom:20px;
-}
 
 .gallery img{
-    width:250px;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-    transition:transform .4s ease, box-shadow .4s ease;
-    animation:fadeUp 1s ease forwards;
-    opacity:0;
+width:220px;
+border:4px solid white;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+transition:.4s;
 }
 
-.gallery img:nth-child(2){animation-delay:.2s;}
-.gallery img:nth-child(3){animation-delay:.4s;}
-.gallery img:nth-child(4){animation-delay:.6s;}
-.gallery img:nth-child(5){animation-delay:.8s;}
-.gallery img:nth-child(6){animation-delay:1s;}
 
 .gallery img:hover{
-    transform:scale(1.05);
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+transform:scale(1.08);
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+
+
+audio{
+margin:20px;
 }
 
-/* Love Counter */
-.counter{
-    margin:40px 20px;
+
+/* Surprise */
+
+#surprise{
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#ff4d6d,#ff9a9e);
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:20;
 }
 
-.counter h2{
-    font-size:30px;
-    margin-bottom:10px;
+
+.loveFinal{
+font-size:80px;
+font-weight:bold;
+animation:pop 1.5s, glow 2s infinite alternate;
 }
 
-.counter h1{
-    font-size:40px;
+
+.finalHeart{
+font-size:100px;
+animation:beat 1s infinite;
 }
+
+
+
+@keyframes pop{
+
+0%{
+transform:scale(0);
+opacity:0;
+}
+
+70%{
+transform:scale(1.2);
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px white;
+}
+
+to{
+text-shadow:0 0 50px white;
+}
+
+}
+
+
+@keyframes beat{
+
+50%{
+transform:scale(1.3);
+}
+
+}
+
+
+/* Confetti */
+
+.confetti{
+position:fixed;
+top:-20px;
+width:12px;
+height:20px;
+animation:fall 4s linear forwards;
+z-index:30;
+}
+
+
+@keyframes fall{
+
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+
+}
+
+
+@media(max-width:600px){
+
+.envelope{
+width:300px;
+}
+
+.flap{
+border-left-width:150px;
+border-right-width:150px;
+}
+
+.letter{
+width:260px;
+}
+
+.loveFinal{
+font-size:45px;
+}
+
+}
+
+
 </style>
 
 </head>
+
+
 <body>
 
-<div class="hero">
-<h1>Happy Girlfriends Day ❤️</h1>
+
+<div class="container">
+
+<h1>Happy Girlfriend's Day ❤️</h1>
+
+<p>Open this envelope, there is something special for you 💌</p>
+
+
+<div class="envelope" id="env" onclick="openEnvelope()">
+
+<div class="flap"></div>
+
+<div class="base"></div>
+
+
+<div class="letter">
+
+<h3>To My Love ❤️</h3>
 
 <p>
-Every day with you is my favorite day.
-Thank you for being the most wonderful person in my life.
-</p>
+Happy Girlfriend's Day my love ❤️
 
-<button onclick="showLetter()">
-Open My Letter 💌
-</button>
+Today is a special day to remind you how important you are to me. Thank you for bringing endless happiness, beautiful smiles and countless memories into my life. Every moment spent with you becomes a precious memory that I want to keep forever.
 
-</div>
+Your kindness, your laughter and the way you make ordinary days feel magical mean more to me than words can explain. I feel lucky to have you by my side.
 
-<div id="letter">
+No matter what happens, I will always cherish you, support you and love you with all my heart.
 
-<h2>To My Love ❤️</h2>
-
-<p>
-
-Happy Girlfriends Day!
-
-Thank you for every smile, every laugh, every memory,
-and every moment we've shared.
-
-You make my world brighter and my heart happier.
-No matter what happens, I hope we continue making
-beautiful memories together.
-
-I love you more than words can express.
-
-❤️ Forever Yours ❤️
-
+You are my favourite person forever ❤️
 </p>
 
 </div>
+
+</div>
+
+
+<div class="click">
+Click the envelope 💌
+</div>
+
+</div>
+
+
+
+<div id="content" class="hidden">
+
 
 <div class="counter">
-    <h2>❤️ We've Been Together For ❤️</h2>
-    <h1 id="loveCounter"></h1>
-</div>
-  <section class="gallery">
 
-<h2>Our Beautiful Memories ❤️</h2>
+<h2>❤️ We've Been Together For ❤️</h2>
+
+<h1 id="loveCounter"></h1>
+
+</div>
+
+
+<section class="gallery">
+
+<h2 style="grid-column:1/-1">
+Our Beautiful Memories ❤️
+</h2>
+
 
 <img src="742895376_1335854654830644_255156823695996011_n.jpg">
 
@@ -206,64 +360,135 @@ I love you more than words can express.
 
 <img src="Screenshot%202026-07-18%20152717.png">
 
+
 </section>
 
-  <audio controls loop>
-    <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support audio.
+
+<audio controls loop>
+<source src="song.mp3" type="audio/mpeg">
 </audio>
+
+
+</div>
+
+
+
+<div id="surprise">
+
+<div class="loveFinal">
+I Love You ❤️
+</div>
+
+<div class="finalHeart">
+💖
+</div>
+
+</div>
+
+
+
 <script>
 
-function showLetter(){
-document.getElementById("letter").style.display="block";
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:"smooth"
-});
-}
 
-function createHeart(){
+function openEnvelope(){
 
-const heart=document.createElement("div");
+let e=document.getElementById("env");
 
-heart.innerHTML="❤️";
+e.classList.add("open");
 
-heart.className="heart";
 
-heart.style.left=Math.random()*100+"vw";
+document.querySelector(".click").style.display="none";
 
-heart.style.animationDuration=(Math.random()*4+3)+"s";
-
-heart.style.fontSize=(Math.random()*25+15)+"px";
-
-document.body.appendChild(heart);
 
 setTimeout(()=>{
-heart.remove();
-},7000);
+
+document.querySelector(".container").style.display="none";
+
+document.getElementById("content").classList.remove("hidden");
+
+
+},1500);
+
+
+
+setTimeout(()=>{
+
+showSurprise();
+
+},12000);
 
 }
 
-setInterval(createHeart,300);
 
-</script>
-<script>
-const startDate = new Date("2024-08-01"); // Change to your anniversary date
 
-function updateCounter() {
-    const now = new Date();
-    const diff = now - startDate;
+const startDate=new Date("2025-12-12");
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
-    document.getElementById("loveCounter").innerHTML =
-        `${days} Days ❤️ ${hours} Hours ❤️ ${minutes} Minutes`;
+function upd(){
+
+const now=new Date();
+
+const d=now-startDate;
+
+
+loveCounter.textContent=
+`${Math.floor(d/86400000)} Days ❤️ ${Math.floor(d/3600000)%24} Hours ❤️ ${Math.floor(d/60000)%60} Minutes`;
+
 }
 
-updateCounter();
-setInterval(updateCounter, 60000);
+
+upd();
+
+setInterval(upd,60000);
+
+
+
+
+function showSurprise(){
+
+document.getElementById("surprise").style.display="flex";
+
+
+for(let i=0;i<200;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+
+c.style.left=Math.random()*100+"vw";
+
+
+c.style.animationDuration=(Math.random()*3+2)+"s";
+
+
+c.style.background=
+[
+"#ff4d6d",
+"#ffd166",
+"#06d6a0",
+"#118ab2",
+"#8338ec"
+][Math.floor(Math.random()*5)];
+
+
+document.body.appendChild(c);
+
+
+setTimeout(()=>{
+
+c.remove();
+
+},5000);
+
+
+}
+
+}
+
+
 </script>
+
+
 </body>
 </html>
