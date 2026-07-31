@@ -8,8 +8,13 @@
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#ff6f91,#ff9fb2);
 color:white;
@@ -17,6 +22,8 @@ text-align:center;
 overflow-x:hidden;
 }
 
+
+/* MAIN */
 
 .container{
 min-height:100vh;
@@ -29,11 +36,12 @@ padding:20px;
 
 
 h1{
-text-shadow:0 0 15px rgba(255,255,255,.8);
+text-shadow:0 0 15px white;
 }
 
 
-/* Envelope */
+
+/* ENVELOPE */
 
 .envelope{
 position:relative;
@@ -41,7 +49,6 @@ width:340px;
 height:230px;
 cursor:pointer;
 perspective:1000px;
-transition:1s;
 }
 
 
@@ -80,12 +87,11 @@ background:white;
 color:#333;
 border-radius:12px;
 padding:18px;
-box-sizing:border-box;
+overflow:auto;
 transform:translateY(40px);
 transition:1s;
-overflow:auto;
 z-index:2;
-box-shadow:0 10px 25px rgba(0,0,0,.25);
+box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
 
 
@@ -105,24 +111,26 @@ transform:translateY(-150px);
 
 
 .click{
-margin-top:30px;
+margin-top:35px;
 font-size:20px;
 animation:pulse 1.5s infinite;
 }
 
 
 @keyframes pulse{
-50%{transform:scale(1.1);}
+50%{
+transform:scale(1.1);
+}
 }
 
 
+
+/* CONTENT */
 
 .hidden{
 display:none;
 }
 
-
-/* Counter */
 
 .counter{
 margin:30px auto;
@@ -130,12 +138,8 @@ padding:15px 25px;
 background:rgba(255,255,255,.2);
 border:2px solid white;
 border-radius:15px;
-width:max-content;
 }
 
-
-
-/* Gallery */
 
 .gallery{
 display:grid;
@@ -159,13 +163,41 @@ transform:scale(1.08);
 }
 
 
-
 audio{
 margin:20px;
 }
 
 
-/* Surprise */
+
+/* FLOATING HEARTS */
+
+.floating-heart{
+position:fixed;
+bottom:-20px;
+font-size:25px;
+animation:floatUp 6s linear forwards;
+z-index:5;
+pointer-events:none;
+}
+
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) scale(1.8) rotate(360deg);
+opacity:0;
+}
+
+}
+
+
+
+/* FINAL SURPRISE */
 
 #surprise{
 position:fixed;
@@ -182,7 +214,7 @@ z-index:20;
 .loveFinal{
 font-size:80px;
 font-weight:bold;
-animation:pop 1.5s, glow 2s infinite alternate;
+animation:pop 1.5s,glow 2s infinite alternate;
 }
 
 
@@ -190,7 +222,6 @@ animation:pop 1.5s, glow 2s infinite alternate;
 font-size:100px;
 animation:beat 1s infinite;
 }
-
 
 
 @keyframes pop{
@@ -234,7 +265,8 @@ transform:scale(1.3);
 }
 
 
-/* Confetti */
+
+/* CONFETTI */
 
 .confetti{
 position:fixed;
@@ -254,6 +286,7 @@ opacity:0;
 }
 
 }
+
 
 
 @media(max-width:600px){
@@ -277,20 +310,15 @@ font-size:45px;
 
 }
 
-
 </style>
-
 </head>
-
-
 <body>
-
 
 <div class="container">
 
 <h1>Happy Girlfriend's Day ❤️</h1>
 
-<p>Open this envelope, there is something special for you 💌</p>
+<p>Click the envelope to open your special surprise 💌</p>
 
 
 <div class="envelope" id="env" onclick="openEnvelope()">
@@ -307,13 +335,15 @@ font-size:45px;
 <p>
 Happy Girlfriend's Day my love ❤️
 
-Today is a special day to remind you how important you are to me. Thank you for bringing endless happiness, beautiful smiles and countless memories into my life. Every moment spent with you becomes a precious memory that I want to keep forever.
+Today is a reminder of how special you are to me. Thank you for filling my life with happiness, endless smiles and beautiful memories that I will always treasure.
 
-Your kindness, your laughter and the way you make ordinary days feel magical mean more to me than words can explain. I feel lucky to have you by my side.
+Every moment with you feels magical, whether we are laughing together, sharing our thoughts, or simply enjoying each other's company. Your kindness, your care and your presence make my days brighter.
 
-No matter what happens, I will always cherish you, support you and love you with all my heart.
+I am grateful for every memory we have created and excited for all the memories waiting for us ahead.
 
-You are my favourite person forever ❤️
+You are my favourite person, my biggest happiness and someone I will always cherish.
+
+I love you forever ❤️
 </p>
 
 </div>
@@ -322,8 +352,9 @@ You are my favourite person forever ❤️
 
 
 <div class="click">
-Click the envelope 💌
+Open the envelope 💌
 </div>
+
 
 </div>
 
@@ -341,6 +372,7 @@ Click the envelope 💌
 </div>
 
 
+
 <section class="gallery">
 
 <h2 style="grid-column:1/-1">
@@ -350,22 +382,25 @@ Our Beautiful Memories ❤️
 
 <img src="742895376_1335854654830644_255156823695996011_n.jpg">
 
-<img src="Screenshot%202026-06-03%20164649.png">
+<img src="Screenshot 2026-06-03 164649.png">
 
-<img src="Screenshot%202026-06-05%20161412.png">
+<img src="Screenshot 2026-06-05 161412.png">
 
-<img src="Screenshot%202026-06-07%20234904.png">
+<img src="Screenshot 2026-06-07 234904.png">
 
-<img src="Screenshot%202026-07-06%20181325.png">
+<img src="Screenshot 2026-07-06 181325.png">
 
-<img src="Screenshot%202026-07-18%20152717.png">
+<img src="Screenshot 2026-07-18 152717.png">
 
 
 </section>
 
 
+
 <audio controls loop>
+
 <source src="song.mp3" type="audio/mpeg">
+
 </audio>
 
 
@@ -373,28 +408,36 @@ Our Beautiful Memories ❤️
 
 
 
+<!-- FINAL SCREEN -->
+
 <div id="surprise">
 
 <div class="loveFinal">
 I Love You ❤️
 </div>
 
+
 <div class="finalHeart">
 💖
 </div>
 
+
 </div>
+
+
 
 
 
 <script>
 
 
+// Envelope opening
+
 function openEnvelope(){
 
-let e=document.getElementById("env");
+let env=document.getElementById("env");
 
-e.classList.add("open");
+env.classList.add("open");
 
 
 document.querySelector(".click").style.display="none";
@@ -405,7 +448,6 @@ setTimeout(()=>{
 document.querySelector(".container").style.display="none";
 
 document.getElementById("content").classList.remove("hidden");
-
 
 },1500);
 
@@ -421,28 +463,73 @@ showSurprise();
 
 
 
+
+
+// Relationship counter
+
 const startDate=new Date("2025-12-12");
 
 
-function upd(){
+function updateCounter(){
 
-const now=new Date();
+let now=new Date();
 
-const d=now-startDate;
+let diff=now-startDate;
 
 
-loveCounter.textContent=
-`${Math.floor(d/86400000)} Days ❤️ ${Math.floor(d/3600000)%24} Hours ❤️ ${Math.floor(d/60000)%60} Minutes`;
+loveCounter.innerHTML=
+`${Math.floor(diff/86400000)} Days ❤️ 
+${Math.floor(diff/3600000)%24} Hours ❤️ 
+${Math.floor(diff/60000)%60} Minutes`;
 
 }
 
 
-upd();
+updateCounter();
 
-setInterval(upd,60000);
+setInterval(updateCounter,60000);
 
 
 
+
+
+// Floating hearts
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.className="floating-heart";
+
+heart.innerHTML="❤️";
+
+
+heart.style.left=Math.random()*100+"vw";
+
+
+heart.style.animationDuration=
+(Math.random()*3+4)+"s";
+
+
+document.body.appendChild(heart);
+
+
+setTimeout(()=>{
+
+heart.remove();
+
+},7000);
+
+}
+
+
+setInterval(createHeart,500);
+
+
+
+
+
+// Confetti surprise
 
 function showSurprise(){
 
@@ -451,33 +538,35 @@ document.getElementById("surprise").style.display="flex";
 
 for(let i=0;i<200;i++){
 
-let c=document.createElement("div");
+let confetti=document.createElement("div");
 
-c.className="confetti";
-
-
-c.style.left=Math.random()*100+"vw";
+confetti.className="confetti";
 
 
-c.style.animationDuration=(Math.random()*3+2)+"s";
+confetti.style.left=Math.random()*100+"vw";
 
 
-c.style.background=
+confetti.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+
+confetti.style.background=
 [
 "#ff4d6d",
 "#ffd166",
 "#06d6a0",
 "#118ab2",
 "#8338ec"
-][Math.floor(Math.random()*5)];
+]
+[Math.floor(Math.random()*5)];
 
 
-document.body.appendChild(c);
+document.body.appendChild(confetti);
 
 
 setTimeout(()=>{
 
-c.remove();
+confetti.remove();
 
 },5000);
 
