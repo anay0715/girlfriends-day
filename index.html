@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriends Day ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+h1{
+font-size:55px;
+margin-bottom:20px;
+}
+
+p{
+font-size:22px;
+max-width:700px;
+line-height:1.6;
+}
+
+button{
+margin-top:30px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4f81;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+#letter{
+display:none;
+background:white;
+color:#333;
+padding:40px;
+max-width:700px;
+margin:50px auto;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+font-size:20px;
+line-height:1.8;
+}
+
+.heart{
+position:fixed;
+color:red;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+}
+100%{
+transform:translateY(110vh);
+}
+}
+</style>
+
+</head>
+<body>
+
+<div class="hero">
+<h1>Happy Girlfriends Day ❤️</h1>
+
+<p>
+Every day with you is my favorite day.
+Thank you for being the most wonderful person in my life.
+</p>
+
+<button onclick="showLetter()">
+Open My Letter 💌
+</button>
+
+</div>
+
+<div id="letter">
+
+<h2>To My Love ❤️</h2>
+
+<p>
+
+Happy Girlfriends Day!
+
+Thank you for every smile, every laugh, every memory,
+and every moment we've shared.
+
+You make my world brighter and my heart happier.
+No matter what happens, I hope we continue making
+beautiful memories together.
+
+I love you more than words can express.
+
+❤️ Forever Yours ❤️
+
+</p>
+
+</div>
+
+<script>
+
+function showLetter(){
+document.getElementById("letter").style.display="block";
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*4+3)+"s";
+
+heart.style.fontSize=(Math.random()*25+15)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
